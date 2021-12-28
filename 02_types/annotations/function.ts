@@ -25,3 +25,5 @@ const logWeather = ({date,message} : {date:Date,message:string} ) : void => {
     console.log(message);
 }
 
+
+
