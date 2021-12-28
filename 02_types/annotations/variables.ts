@@ -26,3 +26,12 @@ let points: {
     x: 10,
     y: 10
 }
+
+
+const logNumber: (num: number) => void = (num: number) => {
+    console.log(num)
+}
+logNumber(2)
+
+let json = `{"x":20,"y":30}`
+let coordinates = JSON.parse(json)
