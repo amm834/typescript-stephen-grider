@@ -34,4 +34,4 @@ const logNumber: (num: number) => void = (num: number) => {
 logNumber(2)
 
 let json = `{"x":20,"y":30}`
-let coordinates = JSON.parse(json)
+let coordinates: { x: number; y: number } = JSON.parse(json)
