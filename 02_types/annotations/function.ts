@@ -13,3 +13,15 @@ const logger = (message:string) : void => {
 const throwError = (message:string) : never {
     throw new Error(message)
 }
+
+// desctructing
+const forcast = {
+    date:new Date(),
+    message:'sunny'
+}
+
+const logWeather = ({date,message} : {date:Date,message:string} ) : void => {
+    console.log(date);
+    console.log(message);
+}
+
