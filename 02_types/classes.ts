@@ -3,11 +3,16 @@ class Vehicle {
         console.log('chuga chuga');
     }
 
-    beat(): void {
+    honk(): void {
         console.log('poom....');
     }
 }
 
-const vehicle = new Vehicle();
-vehicle.drive();
-vehicle.beat();
+class Car extends Vehicle {
+    drive(): void {
+        console.log('vromm');
+    }
+}
+
+const car = new Car();
+car.drive();
