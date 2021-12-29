@@ -1,10 +1,15 @@
-interface Vehicle {
-    name: string;
-    model: Date;
-    broken: boolean;
+interface Reportable {
     summary(): string;
 }
 
+const drink = {
+    name: 'Cocacola',
+    carbonated: false,
+    sugar: 40,
+    summary(): string {
+        return `I am drinking ${this.name}`;
+    },
+};
 const oldCivic = {
     name: 'civic',
     model: new Date(),
@@ -17,8 +22,9 @@ const oldCivic = {
     },
 };
 
-const printVehicle = (vehicle: Vehicle) => {
-    vehicle.summary();
+const printSummary = (item: Reportable) => {
+    console.log(item.summary());
 };
 
-printVehicle(oldCivic);
+printSummary(oldCivic);
+printSummary(drink);
