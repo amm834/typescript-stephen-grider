@@ -1,4 +1,5 @@
 class Vehicle {
+    constructor(public color: string) {}
     protected drive(): void {
         console.log('chuga chuga');
     }
