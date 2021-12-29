@@ -14,7 +14,8 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 var Vehicle = /** @class */ (function () {
-    function Vehicle() {
+    function Vehicle(color) {
+        this.color = color;
     }
     Vehicle.prototype.drive = function () {
         console.log('chuga chuga');
@@ -26,13 +27,18 @@ var Vehicle = /** @class */ (function () {
 }());
 var Car = /** @class */ (function (_super) {
     __extends(Car, _super);
-    function Car() {
-        return _super !== null && _super.apply(this, arguments) || this;
+    function Car(wheels, color) {
+        var _this = _super.call(this, color) || this;
+        _this.wheels = wheels;
+        return _this;
     }
     Car.prototype.drive = function () {
         console.log('vromm');
     };
+    Car.prototype.startDriving = function () {
+        this.drive();
+    };
     return Car;
 }(Vehicle));
-var car = new Car();
-car.drive();
+var car = new Car(4, 'green');
+car.startDriving();
