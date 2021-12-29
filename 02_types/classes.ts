@@ -1,5 +1,5 @@
 class Vehicle {
-    drive(): void {
+    protected drive(): void {
         console.log('chuga chuga');
     }
 
@@ -9,10 +9,14 @@ class Vehicle {
 }
 
 class Car extends Vehicle {
-    drive(): void {
+    protected drive(): void {
         console.log('vromm');
+    }
+
+    startDriving(): void {
+        this.drive();
     }
 }
 
 const car = new Car();
-car.drive();
+car.startDriving();
