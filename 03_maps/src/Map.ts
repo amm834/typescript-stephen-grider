@@ -31,4 +31,14 @@ export class Map {
             },
         });
     }
+
+    addMarker(map: User | Company): void {
+        new google.maps.Marker({
+            map: this.googleMap,
+            position: {
+                lat: map.location.lat,
+                lng: map.location.lng,
+            },
+        });
+    }
 }
