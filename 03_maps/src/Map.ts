@@ -3,6 +3,7 @@ interface Markable {
         lat: number;
         lng: number;
     };
+    markerContent(): string;
 }
 
 export class Map {
@@ -17,17 +18,17 @@ export class Map {
         });
     }
 
-    addMarker(position: Markable): void {
+    addMarker(mapable: Markable): void {
         const marker = new google.maps.Marker({
             map: this.googleMap,
             position: {
-                lat: position.location.lat,
-                lng: position.location.lng,
+                lat: mapable.location.lat,
+                lng: mapable.location.lng,
             },
         });
         marker.addListener('click', () => {
             const infoWindow = new google.maps.InfoWindow({
-                content: 'HEllo world',
+                content: mapable.markerContent(),
             });
 
             infoWindow.open(this.googleMap, marker);
