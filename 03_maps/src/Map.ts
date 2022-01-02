@@ -1,6 +1,3 @@
-import { Company } from './Company';
-import { User } from './User';
-
 interface Markable {
     location: {
         lat: number;
@@ -20,13 +17,20 @@ export class Map {
         });
     }
 
-    addMarker(marker: Markable): void {
-        new google.maps.Marker({
+    addMarker(position: Markable): void {
+        const marker = new google.maps.Marker({
             map: this.googleMap,
             position: {
-                lat: marker.location.lat,
-                lng: marker.location.lng,
+                lat: position.location.lat,
+                lng: position.location.lng,
             },
+        });
+        marker.addListener('click', () => {
+            const infoWindow = new google.maps.InfoWindow({
+                content: 'HEllo world',
+            });
+
+            infoWindow.open(this.googleMap, marker);
         });
     }
 }
