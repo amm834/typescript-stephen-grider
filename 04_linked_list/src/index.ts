@@ -2,16 +2,17 @@ import { NumberCollection } from './NumbersCollection';
 import { CharactersCollection } from './CharactersCollection';
 import { Sorter } from './Sorter';
 
-const numbesCollection = new NumberCollection([10, 2, -5, 6]);
-numbesCollection.sort();
+// const numbersCollection = new NumberCollection([10, 2, -5, 6]);
+// numbersCollection.sort();
 
 // const sorter = new Sorter(numbesCollection);
 // sorter.sort();
-// console.log(numbesCollection.data);
+// console.log(numbersCollection.data);
 
 // const charactersCollection = new CharactersCollection('Xaay');
-// const sorter = new Sorter(charactersCollection);
-// sorter.sort();
+// charactersCollection.sort();
+// // const sorter = new Sorter(charactersCollection);
+// // sorter.sort();
 // console.log(charactersCollection);
 
 // const linkedList = new LinkedList();
