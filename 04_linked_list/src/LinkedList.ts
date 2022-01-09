@@ -1,4 +1,4 @@
-/* import { Sorter } from './Sorter';
+import { Sorter } from './Sorter';
 
 class Node {
     next: Node | null = null;
@@ -87,4 +87,3 @@ export class LinkedList extends Sorter {
         }
     }
 }
- */
