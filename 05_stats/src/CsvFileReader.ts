@@ -1,5 +1,6 @@
 import fs from "fs";
 import {dateStringToDate} from "./utils";
+import {MathResult} from "./MatchResult";
 
 export class CsvFileReader {
     public data: string[][] = []
@@ -23,7 +24,7 @@ export class CsvFileReader {
                     row[2],
                     Number(row[3]),
                     Number(row[4]),
-                    row[5],
+                    row[5] as MathResult,
                     row[6]
                 ]
             })
