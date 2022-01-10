@@ -1,20 +1,19 @@
 {
-    "name": "05_stats",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "type": "module",
-    "scripts": {
-        "start:nodemon": "nodemon build/index.js",
-        "start:tsc": "tsc -w",
-        "start": "concurrently npm:start:*"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "devDependencies": {
-        "@types/node": "^17.0.8",
-        "concurrently": "^7.0.0",
-        "nodemon": "^2.0.15"
-    }
+  "name": "05_stats",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:nodemon": "nodemon build/index.js",
+    "start:tsc": "tsc -w",
+    "start": "concurrently npm:start:*"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^17.0.8",
+    "concurrently": "^7.0.0",
+    "nodemon": "^2.0.15"
+  }
 }
