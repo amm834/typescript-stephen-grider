@@ -19,4 +19,6 @@ export class WinsAnalyzer implements Analyzer {
         return `Team ${this.teamName} won ${wins} matches.`;
     }
 
+
+
 }
