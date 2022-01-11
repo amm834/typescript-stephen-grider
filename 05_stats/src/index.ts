@@ -1,17 +1,15 @@
-import {CsvFileReader} from "./CsvFileReader";
-import {dateStringToDate} from "./utils";
+import {MatchReader} from "./MatchReader";
+import {MatchResult} from "./MatchResult";
 
-const reader = new CsvFileReader('football.csv')
+const reader = new MatchReader('football.csv')
 reader.read()
-
-
 
 
 let manUnitedWins = 0;
 for (const match of reader.data) {
-    if (match[1] === 'Man United' && match[5] === MathResult.HomeWin) {
+    if (match[1] === 'Man United' && match[5] === MatchResult.HomeWin) {
         manUnitedWins++;
-    } else if (match[2] === 'Man United' && match[5] === MathResult.AwayWin) {
+    } else if (match[2] === 'Man United' && match[5] === MatchResult.AwayWin) {
         manUnitedWins++;
     }
 }
