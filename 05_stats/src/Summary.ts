@@ -8,7 +8,7 @@ export interface OutputTarget {
     print(report: string): void;
 }
 
-class Summary {
+export class Summary {
     constructor(public analyzer: Analyzer, public outputTarget: OutputTarget) {
     }
 
