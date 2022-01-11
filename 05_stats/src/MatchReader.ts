@@ -1,25 +1,33 @@
-interface DataReader {
-    read(): void;
+import {MatchResult} from "./MatchResult";
+import {dateStringToDate} from "./utils";
 
-    data(): string[][];
+interface DataReader {
+    data: string[][];
+
+    read(): void;
 }
 
+type MatchData = [Date, string, string, number, number, MatchResult, string]
+
 export class MatchReader {
+    matches: MatchData[] = []
+
+
     constructor(public reader: DataReader) {
     }
 
     load() {
-        // .map((row: string[]): any => {
-        //         return [
-        //             dateStringToDate(row[0]),
-        //             row[1],
-        //             row[2],
-        //             Number(row[3]),
-        //             Number(row[4]),
-        //             row[5] as MathResult,
-        //             row[6]
-        //         ]
-        //     })
+        this.matches = this.reader.data.map((row: string[]): MatchData => {
+            return [
+                dateStringToDate(row[0]),
+                row[1],
+                row[2],
+                Number(row[3]),
+                Number(row[4]),
+                row[5] as MatchResult,
+                row[6]
+            ]
+        })
 
     }
 }
