@@ -22,5 +22,5 @@ class ArrayOfAnything<T> {
     }
 }
 
-const anything = new ArrayOfAnything<string>(['a', 'b', 'c'])
+const anything = new ArrayOfAnything(['a', 'b', 'c'])
 console.log(anything.get(1))
