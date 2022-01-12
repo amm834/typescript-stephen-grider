@@ -7,10 +7,15 @@ const user = new User({
 })
 
 user.on('click', () => {
+    console.log('clicking #1')
 })
 user.on('change', () => {
+    console.log('changing #1')
 })
 user.on('change', () => {
+    console.log('changing stage 2')
 })
 
-console.log(user)
+user.trigger('click')
+user.trigger('change')
+user.trigger('changeaaijl')

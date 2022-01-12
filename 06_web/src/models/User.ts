@@ -13,6 +13,7 @@ export class User {
     }
 
     get(propName: string): (string | number) {
+        //@ts-ignore
         return this.data[propName];
     }
 
@@ -20,10 +21,19 @@ export class User {
         Object.assign(this.data, update);
     }
 
-    on(eventName: string, callback: Callback) {
-        const handler = this.events[eventName] || [];
-        handler.push(callback)
-        this.events[eventName] = handler;
+    on(eventName: string, callback: Callback): void {
+        const handlers = this.events[eventName] || [];
+        handlers.push(callback)
+        this.events[eventName] = handlers;
     }
+
+    trigger(eventName: string): void {
+        const handlers = this.events[eventName];
+        if (!handlers || handlers.length === 0) return;
+
+        handlers.forEach(callback => callback())
+
+    }
+
 
 }
