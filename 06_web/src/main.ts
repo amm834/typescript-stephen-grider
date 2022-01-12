@@ -6,5 +6,11 @@ const user = new User({
     age: 18
 })
 
-console.log(user.get('name'))
-console.log(user.get('age'))
+user.on('click', () => {
+})
+user.on('change', () => {
+})
+user.on('change', () => {
+})
+
+console.log(user)
