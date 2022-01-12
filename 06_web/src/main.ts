@@ -1,16 +1,8 @@
-import { Company } from './Company';
-import { User } from './User';
-import { Map } from './Map';
+import './style.css'
+import {User} from "./models/User";
 
-// create map element
-const mapElement = document.createElement('div');
-mapElement.setAttribute('id', 'map');
-document.querySelector('#app')?.appendChild(mapElement);
-
-// additional information for the map
-const user = new User();
-const company = new Company();
-
-const map = new Map(mapElement);
-map.addMarker(user);
-map.addMarker(company);
+const user = new User({
+    name:"John",
+    age:18
+})
+console.log(user.get('name'))
