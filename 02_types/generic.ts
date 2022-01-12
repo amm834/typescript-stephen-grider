@@ -23,4 +23,23 @@ class ArrayOfAnything<T> {
 }
 
 const anything = new ArrayOfAnything(['a', 'b', 'c'])
-console.log(anything.get(1))
+
+function printNumber(arr: number[]): void {
+    for (let i = 0; i < arr.length; i++) {
+        console.log(arr[i])
+    }
+}
+
+function printString(arr: string[]): void {
+    for (let i = 0; i < arr.length; i++) {
+        console.log(arr[i])
+    }
+}
+
+function printAnything(arr: T): void {
+    for (let i = 0; i < arr.length; i++) {
+        console.log(arr[i])
+    }
+}
+
+printAnything(['a', 'b', 'c'])
