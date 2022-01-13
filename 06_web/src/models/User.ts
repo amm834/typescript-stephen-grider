@@ -14,7 +14,7 @@ const rootUrl = 'http://localhost:3000/users'
 
 export class User extends Model<UserProps> {
 
-    static buildUser(data: UserProps): User {
+    static build(data: UserProps): User {
         return new User(
             new Attributes<UserProps>(data),
             new ApiSync<UserProps>(rootUrl),
