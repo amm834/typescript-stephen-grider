@@ -1,7 +1,7 @@
 import {Eventing} from "./Eventing";
 import {Sync} from "./Sync";
 import {Attributes} from "./Attributes";
-import {AxiosResponse} from "axios";
+import {AxiosError, AxiosResponse} from "axios";
 
 export interface UserProps {
     id?: number;
@@ -48,5 +48,16 @@ export class User {
         this.sync.fetch(id).then((response: AxiosResponse): void => {
             this.set(response.data);
         })
+    }
+
+    save(): void {
+        this.sync.save(this.attributes.getAll()).then((response: AxiosResponse): void => {
+            this.attributes.set(response.data);
+            this.trigger('save')
+        })
+            .catch((error: AxiosError): void => {
+                this.trigger('error')
+                console.log(error)
+            })
     }
 }

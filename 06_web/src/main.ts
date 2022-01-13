@@ -1,13 +1,14 @@
 import {User} from "./models/User";
 
 const user = new User({
-    id: 1
+    id: 1,
+    name: "new name was created",
+    age: 222
 })
 
-user.on('change', () => {
-    console.log('user was changed')
+user.on('save', () => {
+    console.log('user was updated')
 })
 
-user.fetch()
-
+user.save()
 console.log(user)
