@@ -5,5 +5,9 @@ const user = new User({
     age: 3399
 })
 
-user.save()
 
+user.events.on('change', () => {
+    console.log('changing something')
+})
+
+user.events.trigger('change')
