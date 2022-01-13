@@ -5,8 +5,10 @@ const user = new User({
     age: 20
 })
 
+console.log(user.get('name'))
+
 user.on('change', () => {
-    console.log(user.get('name'))
+    console.log('User was changed')
 })
 
 user.trigger('change')
