@@ -6,14 +6,19 @@ export abstract class View<T extends Model<K>, K> {
         this.bindModel()
     }
 
+    abstract template(): string;
+
+    eventsMap(): { [key: string]: () => void } {
+        return {};
+    }
+
+
     bindModel(): void {
         this.model.on('change', () => {
             this.render()
         })
     }
 
-
-    abstract eventsMap(): { [key: string]: () => void }
 
     bindEvents(fragment: DocumentFragment): void {
         const eventsMap = this.eventsMap();
@@ -26,7 +31,6 @@ export abstract class View<T extends Model<K>, K> {
         }
     }
 
-    abstract template(): string;
 
     render(): void {
         // Remove every html element before render
