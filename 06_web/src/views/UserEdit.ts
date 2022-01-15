@@ -6,8 +6,8 @@ export class UserEdit extends View<User, UserProps> {
         return (
             `
             <div>
-                <div class="show-user"></div>
-                <div class="show-form"></div>
+                <div class="user-show"></div>
+                <div class="user-form"></div>
             </div>
             `
         )
