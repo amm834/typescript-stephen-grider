@@ -7,21 +7,13 @@ export class UserForm {
 
     eventsMap(): { [key: string]: () => void } {
         return {
-            'click:button': this.onButtonClick,
+            'click:.set-age': this.onSetAgeClick
         }
 
     }
 
-
-    bindEvents(fragment: DocumentFragment): void {
-        const eventsMap = this.eventsMap();
-        for (const eventsMapKey in eventsMap) {
-            const [eventName, selector] = eventsMapKey.split(':');
-            fragment.querySelectorAll(selector).forEach(element => {
-                element.addEventListener(eventName, eventsMap[eventsMapKey])
-            })
-
-        }
+    onSetAgeClick(): void {
+        console.log('random agel')
     }
 
     onButtonClick(): void {
@@ -38,8 +30,20 @@ export class UserForm {
                 </div>
                 <input />
                 <button>Click Me</button>
+                <button class="set-age">Set Random Age</button>
             </div>
         `
+    }
+
+    bindEvents(fragment: DocumentFragment): void {
+        const eventsMap = this.eventsMap();
+        for (const eventsMapKey in eventsMap) {
+            const [eventName, selector] = eventsMapKey.split(':');
+            fragment.querySelectorAll(selector).forEach(element => {
+                element.addEventListener(eventName, eventsMap[eventsMapKey])
+            })
+
+        }
     }
 
     render(): void {
