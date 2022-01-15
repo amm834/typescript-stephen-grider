@@ -2,10 +2,10 @@
   "name": "04_web",
   "version": "0.0.0",
   "scripts": {
+    "start:db": "json-server -w db.json",
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview",
-    "start:db": "json-server -w db.json"
+    "preview": "vite preview"
   },
   "devDependencies": {
     "concurrent": "^0.3.2",

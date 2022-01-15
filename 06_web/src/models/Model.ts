@@ -31,7 +31,7 @@ export class Model<T extends HasId> {
         private events: Events
     ) {
     }
-
+    
     get on() {
         return this.events.on;
     }
