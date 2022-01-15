@@ -2,5 +2,10 @@ import {UserForm} from "./views/UserForm";
 import {User} from "./models/User";
 
 const user = User.build({name: "NAME", age: 20})
-const userForm = new UserForm(document.getElementById('app'), user)
-userForm.render()
+const root = document.getElementById('app')
+if (root) {
+    const userForm = new UserForm(root, user)
+    userForm.render()
+}else {
+    throw new Error('root Element not found')
+}
