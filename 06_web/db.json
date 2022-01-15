@@ -1,44 +1,9 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "new name was created",
-      "age": 222
-    },
-    {
-      "age": 2929,
-      "name": "new ",
-      "id": 2
-    },
-    {
-      "name": "new name",
-      "age": 20220,
-      "id": 3
-    },
-    {
-      "name": "new naaaoiwoajme",
-      "age": 3399,
-      "id": 4
-    },
-    {
-      "name": "new naaaoiwoajme",
-      "age": 3399,
-      "id": 5
-    },
-    {
-      "name": "new naaaoiwoajme",
-      "age": 3399,
-      "id": 6
-    },
-    {
-      "name": "new naaaoiwoajme",
-      "age": 3399,
-      "id": 7
-    },
-    {
-      "name": "new naaaoiwoajme",
-      "age": 3399,
-      "id": 8
+      "name": "NAME",
+      "age": 89,
+      "id": 1
     }
   ]
 }
