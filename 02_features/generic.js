@@ -1,3 +1,4 @@
+"use strict";
 class ArrayOfNumber {
     constructor(collection) {
         this.collection = collection;

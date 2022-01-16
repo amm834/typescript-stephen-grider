@@ -1,3 +1,4 @@
+"use strict";
 const drink = {
     name: 'Cocacola',
     carbonated: false,

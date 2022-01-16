@@ -1,3 +1,4 @@
+"use strict";
 const profile = {
     name: 'Mg Mg',
     age: 17,

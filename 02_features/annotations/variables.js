@@ -1,3 +1,4 @@
+"use strict";
 // primitive
 let apples = 5;
 let hasGirlFriend = false;

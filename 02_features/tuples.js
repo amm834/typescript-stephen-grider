@@ -1,3 +1,4 @@
+"use strict";
 let drink = {
     color: 'brown',
     carbontad: false,

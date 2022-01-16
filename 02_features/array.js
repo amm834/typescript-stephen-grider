@@ -1,3 +1,4 @@
+"use strict";
 let cars = ['Toyota', 'Ford', 'Chevy'];
 let years = [new Date(), new Date()];
 let carMakers = [['Toyota'], ['Ford']];
