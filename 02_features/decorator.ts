@@ -5,21 +5,23 @@ class Boat {
         return `Boat color is ${this.color}`
     }
 
-    @logError
+    @logError('Oops!Boat sunk in ocean')
     pilot(): void {
         throw new Error()
     }
 
 }
 
-function logError(target: any, key: string, desc: PropertyDescriptor) {
-    const method = desc.value;
+function logError(errorMessage: string) {
+    return (target: any, key: string, desc: PropertyDescriptor) => {
+        const method = desc.value;
 
-    desc.value = function () {
-        try {
-            method()
-        } catch (e) {
-            console.log(method, 'Oop!')
+        desc.value = function () {
+            try {
+                method()
+            } catch (e) {
+                console.log(errorMessage)
+            }
         }
     }
 }
