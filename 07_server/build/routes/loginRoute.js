@@ -29,3 +29,21 @@ router.post('/login', (req, res) => {
         res.send('Invalid email or password');
     }
 });
+router.get('/', (req, res) => {
+    if (req.session && req.session.loggedIn) {
+        res.send(`
+        <div>
+            <h1>WELOCME! Logged In</h1>
+            <a href="/logout">Logout</a>
+        </div>
+        `);
+    }
+    else {
+        res.send(`
+        <div>
+            <h1>You are not logged in.</h1>
+            <a href="/login">Login</a>
+        </div>
+        `);
+    }
+});
