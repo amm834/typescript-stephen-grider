@@ -72,3 +72,4 @@ router.get('/protected', requireAuth, (req: Request, res: Response) => {
     `)
 })
 export {router}
+
