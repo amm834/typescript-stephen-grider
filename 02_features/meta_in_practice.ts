@@ -1,20 +1,23 @@
 import 'reflect-metadata'
 
-class Plane {
+@controller
+class LoginController {
     color: string = 'red'
 
-    @markFunction('Hello World!')
-    fly() {
-        console.log('vrrrrr')
+    @get('/login')
+    login(): void {
+        console.log('login method')
     }
 }
 
-function markFunction(info: string) {
-    return function (target: Plane, key: string) {
-        Reflect.defineMetadata('secret', 123, target, key)
-    }
 
+
+function get(path: string) {
+    return (target: LoginController, key: string): void => {
+        Reflect.defineMetadata('path', path, target, key)
+    }
 }
 
-const secret = Reflect.getMetadata('secret', Plane.prototype, 'fly')
-console.log(secret)
+function controller(target:typeof LoginController) {
+    console.log(target.toString())
+}

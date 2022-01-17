@@ -1,0 +1,16 @@
+import {Request, Response} from "express";
+
+@controller('/')
+class LoginController {
+    @get('/login')
+    getLogin(req: Request, res: Response): void {
+        const {email, password} = req.body;
+        if (email && password && email === 'amm@gmail.com' && password === 'password') {
+            req.session = {loggedIn: true};
+            res.redirect('/')
+        } else {
+            res.send('Invalid email or password')
+        }
+
+    }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "02_features",
+  "version": "1.0.0",
+  "description": "",
+  "type": "commonjs",
+  "main": "meta_in_practice.js",
+  "dependencies": {
+    "reflect-metadata": "^0.1.13"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
