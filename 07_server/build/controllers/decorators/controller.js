@@ -18,8 +18,9 @@ function controller(prefix) {
                 if (value === target)
                     return;
                 const path = Reflect.getMetadata('path', target.prototype, key);
+                const method = Reflect.getMetadata('method', target.prototype, key);
                 const handler = value;
-                router.get(`${prefix}${path}`, handler);
+                router[method](`${prefix}${path}`, handler);
             }
         });
     };

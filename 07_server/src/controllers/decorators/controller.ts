@@ -1,5 +1,6 @@
 import 'reflect-metadata'
 import {AppRouter} from "../../AppRouter";
+import {Methods} from "./Methods";
 
 
 // @author Aung Myat Moe - @amm834 - MIT license
@@ -17,9 +18,11 @@ export function controller(prefix: string) {
                 if (value === target) return;
 
 
-                const path = Reflect.getMetadata('path', target.prototype, key);
+                const path: string = Reflect.getMetadata('path', target.prototype, key);
+                const method: Methods = Reflect.getMetadata('method', target.prototype, key);
                 const handler: () => void = value;
-                router.get(`${prefix}${path}`, handler);
+
+                router[method](`${prefix}${path}`, handler);
             }
         })
     }
