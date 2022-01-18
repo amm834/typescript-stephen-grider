@@ -25,8 +25,8 @@ let LoginController = class LoginController {
     }
 };
 __decorate([
-    (0, decorators_1.get)('/login')
+    (0, decorators_1.Get)('/login')
 ], LoginController.prototype, "getLogin", null);
 LoginController = __decorate([
-    (0, decorators_1.controller)('/auth')
+    (0, decorators_1.Controller)('/auth')
 ], LoginController);

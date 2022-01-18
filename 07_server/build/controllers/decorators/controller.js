@@ -1,10 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.controller = void 0;
+exports.Controller = void 0;
 require("reflect-metadata");
 const AppRouter_1 = require("../../AppRouter");
+const MetadataKeys_1 = require("./MetadataKeys");
 // @author Aung Myat Moe - @amm834 - MIT license
-function controller(prefix) {
+function Controller(prefix) {
     return function (target) {
         const router = AppRouter_1.AppRouter.getInstance();
         Reflect.ownKeys(target.prototype).forEach(key => {
@@ -17,12 +18,12 @@ function controller(prefix) {
                     return;
                 if (value === target)
                     return;
-                const path = Reflect.getMetadata('path', target.prototype, key);
-                const method = Reflect.getMetadata('method', target.prototype, key);
+                const path = Reflect.getMetadata(MetadataKeys_1.MetadataKeys.path, target.prototype, key);
+                const method = Reflect.getMetadata(MetadataKeys_1.MetadataKeys.method, target.prototype, key);
                 const handler = value;
                 router[method](`${prefix}${path}`, handler);
             }
         });
     };
 }
-exports.controller = controller;
+exports.Controller = Controller;

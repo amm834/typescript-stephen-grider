@@ -1,10 +1,10 @@
 import {Request, Response} from "express";
-import {controller, get} from "./decorators";
+import {Controller, Get} from "./decorators";
 
-@controller('/auth')
+@Controller('/auth')
 class LoginController {
 
-    @get('/login')
+    @Get('/login')
     getLogin(req: Request, res: Response) {
         res.send(`
     <form method="POST">
