@@ -21,7 +21,10 @@ function Controller(prefix) {
                 const path = Reflect.getMetadata(MetadataKeys_1.MetadataKeys.path, target.prototype, key);
                 const method = Reflect.getMetadata(MetadataKeys_1.MetadataKeys.method, target.prototype, key);
                 const handler = value;
-                router[method](`${prefix}${path}`, handler);
+                const middlewares = Reflect.getMetadata(MetadataKeys_1.MetadataKeys.middleware, target, key) || [];
+                if (path) {
+                    router[method](`${prefix}${path}`, ...middlewares, handler);
+                }
             }
         });
     };

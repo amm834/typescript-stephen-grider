@@ -19,11 +19,14 @@ export function Controller(prefix: string) {
                 if (value === target) return;
 
 
-                const path: string = Reflect.getMetadata(MetadataKeys.path, target.prototype, key);
+                const path = Reflect.getMetadata(MetadataKeys.path, target.prototype, key);
                 const method: Methods = Reflect.getMetadata(MetadataKeys.method, target.prototype, key);
-                const handler: () => void = value;
+                const handler = value;
+                const middlewares = Reflect.getMetadata(MetadataKeys.middleware, target, key) || [];
 
-                router[method](`${prefix}${path}`, handler);
+                if (path) {
+                    router[method](`${prefix}${path}`, ...middlewares, handler);
+                }
             }
         })
     }
