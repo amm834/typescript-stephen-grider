@@ -4,6 +4,11 @@ exports.Controller = void 0;
 require("reflect-metadata");
 const AppRouter_1 = require("../../AppRouter");
 const MetadataKeys_1 = require("./MetadataKeys");
+// @description do real validation of body in this
+function bodyValidators(keys) {
+    return function (req, res, next) {
+    };
+}
 // @author Aung Myat Moe - @amm834 - MIT license
 function Controller(prefix) {
     return function (target) {

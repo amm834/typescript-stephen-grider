@@ -2,7 +2,15 @@ import 'reflect-metadata'
 import {AppRouter} from "../../AppRouter";
 import {Methods} from "./Methods";
 import {MetadataKeys} from "./MetadataKeys";
+import {NextFunction, Request, RequestHandler, Response} from "express";
 
+
+// @description do real validation of body in this
+function bodyValidators(keys: string[]): RequestHandler {
+    return function (req: Request, res: Response, next: NextFunction) {
+    }
+
+}
 
 // @author Aung Myat Moe - @amm834 - MIT license
 export function Controller(prefix: string) {
