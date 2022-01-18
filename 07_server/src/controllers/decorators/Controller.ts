@@ -5,12 +5,20 @@ import {MetadataKeys} from "./MetadataKeys";
 import {NextFunction, Request, RequestHandler, Response} from "express";
 
 /**
+ * @description Overriding of unsafe express middleware
+ * @property body - Request body
+ */
+interface RequestBody extends Request {
+	body: { [key: string]: string | undefined }
+}
+
+/**
  * @description - Handle the form validations
  * @param keys - Array of keys from form data
  * @return RequestHandler Middleware
  * */
 function bodyValidators(keys: string[]): RequestHandler {
-	return function (req: Request, res: Response, next: NextFunction) {
+	return function (req: RequestBody, res: Response, next: NextFunction) {
 		if (!req.body) {
 			res.status(422).end('Invalid Request');
 			return;
@@ -29,7 +37,7 @@ function bodyValidators(keys: string[]): RequestHandler {
 }
 
 // @author Aung Myat Moe - @amm834 - MIT license
-export function Controller(prefix: string) {
+export function Controller(prefix: string = '') {
 	return function (target: Function) {
 
 		const router = AppRouter.getInstance();
@@ -42,8 +50,8 @@ export function Controller(prefix: string) {
 				if (typeof value !== 'function') return;
 				if (value === target) return;
 
-				const handler = value;
-				const path = Reflect.getMetadata(MetadataKeys.path, target.prototype, key);
+				const handler: () => void = value;
+				const path: string | undefined = Reflect.getMetadata(MetadataKeys.path, target.prototype, key);
 				const method: Methods = Reflect.getMetadata(MetadataKeys.method, target.prototype, key);
 				const middlewares = Reflect.getMetadata(MetadataKeys.middleware, target.prototype, key) || [];
 				const requiredProps = Reflect.getMetadata(MetadataKeys.validator, target.prototype, key) || [];

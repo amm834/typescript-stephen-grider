@@ -25,7 +25,7 @@ function bodyValidators(keys) {
     };
 }
 // @author Aung Myat Moe - @amm834 - MIT license
-function Controller(prefix) {
+function Controller(prefix = '') {
     return function (target) {
         const router = AppRouter_1.AppRouter.getInstance();
         Reflect.ownKeys(target.prototype).forEach(key => {

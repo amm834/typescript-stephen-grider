@@ -33,14 +33,21 @@ let LoginController = class LoginController {
             res.send('Invalid email or password');
         }
     }
+    getLogout(req, res) {
+        req.session = null;
+        res.redirect('/');
+    }
 };
 __decorate([
     (0, decorators_1.Get)('/login')
 ], LoginController.prototype, "getLogin", null);
 __decorate([
     (0, decorators_1.Post)('/login'),
-    (0, decorators_1.bodyValidator)('email', 'password')
+    (0, decorators_1.BodyValidator)('email', 'password')
 ], LoginController.prototype, "postLogin", null);
+__decorate([
+    (0, decorators_1.Get)('/logout')
+], LoginController.prototype, "getLogout", null);
 LoginController = __decorate([
     (0, decorators_1.Controller)('/auth')
 ], LoginController);
