@@ -12,16 +12,16 @@ const MetadataKeys_1 = require("./MetadataKeys");
 function bodyValidators(keys) {
     return function (req, res, next) {
         if (!req.body) {
-            res.status(422).send('Invalid Request');
+            res.status(422).end('Invalid Request');
             return;
         }
         for (let key in req.body) {
             if (!req.body[key]) {
-                res.status(422).end('Invalid Request');
+                res.status(422).end(`Missing property ${key}`);
                 return;
             }
-            next();
         }
+        next();
     };
 }
 // @author Aung Myat Moe - @amm834 - MIT license

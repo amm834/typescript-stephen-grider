@@ -23,10 +23,24 @@ let LoginController = class LoginController {
     </form>
     `);
     }
+    postLogin(req, res) {
+        const { email, password } = req.body;
+        if (email === 'amm@gmail.com' && password === 'password') {
+            req.session = { loggedIn: true };
+            res.redirect('/');
+        }
+        else {
+            res.send('Invalid email or password');
+        }
+    }
 };
 __decorate([
     (0, decorators_1.Get)('/login')
 ], LoginController.prototype, "getLogin", null);
+__decorate([
+    (0, decorators_1.Post)('/login'),
+    (0, decorators_1.bodyValidator)('email', 'password')
+], LoginController.prototype, "postLogin", null);
 LoginController = __decorate([
     (0, decorators_1.Controller)('/auth')
 ], LoginController);

@@ -12,18 +12,18 @@ import {NextFunction, Request, RequestHandler, Response} from "express";
 function bodyValidators(keys: string[]): RequestHandler {
 	return function (req: Request, res: Response, next: NextFunction) {
 		if (!req.body) {
-			res.status(422).send('Invalid Request');
+			res.status(422).end('Invalid Request');
 			return;
 		}
 
 		for (let key in req.body) {
 			if (!req.body[key]) {
-				res.status(422).end('Invalid Request');
+				res.status(422).end(`Missing property ${key}`);
 				return;
 			}
-
-			next();
 		}
+
+		next();
 	}
 
 }
