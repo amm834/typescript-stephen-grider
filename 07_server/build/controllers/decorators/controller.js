@@ -21,7 +21,7 @@ function Controller(prefix) {
                 const path = Reflect.getMetadata(MetadataKeys_1.MetadataKeys.path, target.prototype, key);
                 const method = Reflect.getMetadata(MetadataKeys_1.MetadataKeys.method, target.prototype, key);
                 const handler = value;
-                const middlewares = Reflect.getMetadata(MetadataKeys_1.MetadataKeys.middleware, target, key) || [];
+                const middlewares = Reflect.getMetadata(MetadataKeys_1.MetadataKeys.middleware, target.prototype, key) || [];
                 if (path) {
                     router[method](`${prefix}${path}`, ...middlewares, handler);
                 }

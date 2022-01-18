@@ -7,6 +7,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const decorators_1 = require("./decorators");
+const use_1 = require("./decorators/use");
+function logger(req, res, next) {
+    console.log('some how middleware is working');
+    next();
+}
 let LoginController = class LoginController {
     getLogin(req, res) {
         res.send(`
@@ -25,7 +30,9 @@ let LoginController = class LoginController {
     }
 };
 __decorate([
-    (0, decorators_1.Get)('/login')
+    (0, decorators_1.Get)('/login'),
+    (0, use_1.use)(logger),
+    (0, use_1.use)(logger)
 ], LoginController.prototype, "getLogin", null);
 LoginController = __decorate([
     (0, decorators_1.Controller)('/auth')
