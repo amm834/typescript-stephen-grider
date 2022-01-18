@@ -30,18 +30,3 @@ __decorate([
 LoginController = __decorate([
     (0, decorators_1.controller)('/auth')
 ], LoginController);
-//
-// @controller('/auth')
-// class LoginController {
-//     @get('/login')
-//     getLogin(req: Request, res: Response): void {
-//         const {email, password} = req.body;
-//         if (email && password && email === 'amm@gmail.com' && password === 'password') {
-//             req.session = {loggedIn: true};
-//             res.redirect('/')
-//         } else {
-//             res.send('Invalid email or password')
-//         }
-//
-//     }
-// }

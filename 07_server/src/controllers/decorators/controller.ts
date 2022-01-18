@@ -1,17 +1,26 @@
 import 'reflect-metadata'
 import {AppRouter} from "../../AppRouter";
 
-export function controller(routePrefix: string) {
+
+// @author Aung Myat Moe - @amm834 - MIT license
+export function controller(prefix: string) {
     return function (target: Function) {
+
         const router = AppRouter.getInstance();
 
-        for (let key in target.prototype) {
-            const routeHandler = target.prototype[key]
-            const path = Reflect.getMetadata('path', target.prototype, key);
-            console.log('hello')
-            if (path) {
-                router.get(`${routePrefix}${path}`, routeHandler);
+        Reflect.ownKeys(target.prototype).forEach(key => {
+            const descriptor = Reflect.getOwnPropertyDescriptor(target.prototype, key);
+            if (descriptor) {
+                const {value} = descriptor;
+                if (!descriptor.configurable) return;
+                if (typeof value !== 'function') return;
+                if (value === target) return;
+
+
+                const path = Reflect.getMetadata('path', target.prototype, key);
+                const handler: () => void = value;
+                router.get(`${prefix}${path}`, handler);
             }
-        }
+        })
     }
 }
